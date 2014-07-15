@@ -1,0 +1,28 @@
+{
+  "name": "me-animate.css",
+  "version": "0.0.1",
+  "description": "animate.css for angular",
+  "main": "animate.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "animate.css",
+    "angular"
+  ],
+  "author": "Jeremial",
+  "license": "MIT",
+  "devDependencies": {
+    "animate.css": "^3.1.1",
+    "clean-css": "^2.2.8",
+    "coffee-script": "^1.7.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeremial/me-animate.css.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeremial/me-animate.css/issues"
+  },
+  "homepage": "https://github.com/jeremial/me-animate.css"
+}

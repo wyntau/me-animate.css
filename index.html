@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo">
+<head>
+    <meta charset="UTF-8">
+    <title>me-animate.css</title>
+    <link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="animate.css">
+</head>
+<body ng-controller="mainCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 col-xs-offset-3 col-xs-6">
+                <h1 class="text-center">me-animate.css</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 col-xs-offset-3 col-xs-6">
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 col-xs-offset-3 col-xs-6">
+                <h3 class="text-center">Normal</h3>
+            </div>
+        </div>
+        <form action="">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 col-xs-offset-3 col-xs-6">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 col-xs-6">
+                            <select ng-model="normalAnimation" class="form-control">
+                                <option value="选择动画" ng-if="normalAnimation == '选择动画'">选择动画</option>
+                                <option value="{{normalAnimate}}" ng-repeat="normalAnimate in normalAnimations">{{normalAnimate}}</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-xs-6 ">
+                            <button class="btn btn-primary btn-block" ng-click="toggleAnimate()">{{toggleText}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br />
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 col-xs-offset-3 col-xs-6 text-center">
+                <button class="btn btn-warning" ng-class="getAnimate()">Example</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 col-xs-offset-3 col-xs-6">
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 col-xs-offset-3 col-xs-6">
+                <h3 class="text-center">In and Out</h3>
+            </div>
+        </div>
+        <form action="">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 col-xs-offset-3 col-xs-6">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 col-xs-4">
+                            <select ng-model="inAnimation" class="form-control">
+                                <option value="选择入场动画" ng-if="inAnimation == '选择入场动画'">选择入场动画</option>
+                                <option value="{{inAnimate}}" ng-repeat="inAnimate in inAnimations">{{inAnimate}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xs-4">
+                            <select ng-model="outAnimation" class="form-control">
+                                <option value="选择离场动画" ng-if="outAnimation == '选择离场动画'">选择离场动画</option>
+                                <option value="{{outAnimate}}" ng-repeat="outAnimate in outAnimations">{{outAnimate}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xs-4">
+                            <button class="btn btn-primary" ng-click="toggleState()">ToggleState</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 col-xs-offset-3 col-xs-6 ui-view-container">
+                <div ui-view class="animated" ng-class="getClass()"></div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://github.com/jeremial/me-animate.css"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+
+    <script src="http://cdn.staticfile.org/angular.js/1.2.18/angular.min.js"></script>
+    <script src="http://cdn.staticfile.org/angular.js/1.2.18/angular-animate.min.js"></script>
+    <script src="http://cdn.staticfile.org/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
+    <script>
+        angular.module('demo', ['ui.router', 'ngAnimate'])
+        .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+            $stateProvider.state('state1', {
+                url: '/state1',
+                templateUrl: 'state1.html',
+                controller: 'state1'
+            }).state('state2', {
+                url: '/state2',
+                templateUrl: 'state2.html',
+                controller: 'state2'
+            })
+            ;
+
+            $urlRouterProvider.otherwise('/state1');
+        }])
+        .controller('mainCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+            $scope.inAnimation = '选择入场动画';
+            $scope.outAnimation = '选择离场动画';
+            $scope.normalAnimation = '选择动画';
+
+            $scope.toggleText = 'Start';
+
+            $scope.toggleState = function(){
+                if($scope.inAnimation === '选择入场动画' || $scope.outAnimation === '选择离场动画'){
+                    return;
+                }
+
+                if($location.path() == '/state1'){
+                    $location.path('/state2');
+                }else{
+                    $location.path('/state1');
+                }
+            };
+
+            $scope.toggleAnimate = function(){
+                if($scope.normalAnimation === '选择动画'){
+                    return;
+                }
+                if($scope.toggleText === 'Start'){
+                    $scope.infinite = true;
+                    $scope.toggleText = 'Stop';
+                }else{
+                    $scope.infinite = false;
+                    $scope.toggleText = 'Start';
+                }
+            };
+
+            $scope.getClass = function(){
+                return $scope.inAnimation + ' ' + $scope.outAnimation;
+            };
+
+            $scope.getAnimate = function(){
+                var ary = [];
+                if($scope.toggleText === 'Stop'){
+                    ary.push($scope.normalAnimation);
+                    ary.push('animated');
+                    ary.push('infinite');
+                }
+                return ary;
+            }
+
+            $http.get('animate.json').success(function(data){
+                $scope.inAnimations = data.inAnimations;
+                $scope.outAnimations = data.outAnimations;
+                $scope.normalAnimations = data.normalAnimations;
+            });
+        }])
+        .controller('state1', ['$scope', function($scope){
+
+        }])
+        .controller('state2', ['$scope', function($scope){
+
+        }])
+        ;
+    </script>
+    <script type="text/ng-template" id="state1.html">
+        <h3 class="text-center">state1</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </script>
+    <script type="text/ng-template" id="state2.html">
+        <h3 class="text-center">state2</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </script>
+</body>
+</html>
