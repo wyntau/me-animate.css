@@ -30,11 +30,11 @@
                         <div class="col-md-6 col-lg-6 col-xs-6">
                             <select ng-model="normalAnimation" class="form-control">
                                 <option value="选择动画" ng-if="normalAnimation == '选择动画'">选择动画</option>
-                                <option value="{{normalAnimate}}" ng-repeat="normalAnimate in normalAnimations">{{normalAnimate}}</option>
+                                <option value="{{normalAnimate}}" ng-repeat="normalAnimate in normalAnimations" ng-bind="normalAnimate"></option>
                             </select>
                         </div>
                         <div class="col-lg-6 col-md-6 col-xs-6 ">
-                            <button class="btn btn-primary btn-block" ng-click="toggleAnimate()">{{toggleText}}</button>
+                            <button class="btn btn-primary btn-block" ng-click="toggleAnimate()" ng-bind="toggleText"></button>
                         </div>
                     </div>
                 </div>
@@ -63,13 +63,13 @@
                         <div class="col-md-4 col-lg-4 col-xs-4">
                             <select ng-model="inAnimation" class="form-control">
                                 <option value="选择入场动画" ng-if="inAnimation == '选择入场动画'">选择入场动画</option>
-                                <option value="{{inAnimate}}" ng-repeat="inAnimate in inAnimations">{{inAnimate}}</option>
+                                <option value="{{inAnimate}}" ng-repeat="inAnimate in inAnimations" ng-bind="inAnimate"></option>
                             </select>
                         </div>
                         <div class="col-md-4 col-lg-4 col-xs-4">
                             <select ng-model="outAnimation" class="form-control">
                                 <option value="选择离场动画" ng-if="outAnimation == '选择离场动画'">选择离场动画</option>
-                                <option value="{{outAnimate}}" ng-repeat="outAnimate in outAnimations">{{outAnimate}}</option>
+                                <option value="{{outAnimate}}" ng-repeat="outAnimate in outAnimations" ng-bind="outAnimate"></option>
                             </select>
                         </div>
                         <div class="col-md-4 col-lg-4 col-xs-4">
