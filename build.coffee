@@ -2,7 +2,7 @@
 
 fs = require 'fs'
 CleanCSS = require 'clean-css'
-animateConfig = require './node_modules/animate.css/animate-config.json'
+animationConfig = require './node_modules/animate.css/animate-config.json'
 
 animateFile = './node_modules/animate.css/animate.css'
 
@@ -18,28 +18,29 @@ ret =
     outAnimations: []
     normalAnimations: []
 
-for key, section of animateConfig
-    for name, value of section
-        if name.match inRegex
-            ret.inAnimations.push name
-        else if name.match outRegex
-            ret.outAnimations.push name
+for key, section of animationConfig
+    for animationName of section
+        if animationName.match inRegex
+            ret.inAnimations.push animationName
+        else if animationName.match outRegex
+            ret.outAnimations.push animationName
         else
-            ret.normalAnimations.push name
+            ret.normalAnimations.push animationName
 
 content = fs.readFileSync animateFile, {encoding: 'utf8'}
 
 for type, dict of ret
     if type == 'inAnimations'
-        typeClassName = '.ng-enter'
+        animationTypeName = '.ng-enter'
     else if type == 'outAnimations'
-        typeClassName = '.ng-leave'
-    else typeClassName = ''
+        animationTypeName = '.ng-leave'
+    else
+        animationTypeName = ''
 
-    for name in dict
-        className = ".#{name}"
-        newClassName = ".#{name}#{typeClassName}"
-        content = content.replace className, newClassName
+    for animationName in dict
+        oldClassName = ".#{animationName}"
+        newClassName = ".#{animationName}#{animationTypeName}"
+        content = content.replace oldClassName, newClassName
 
 content += '''
 .ui-view-container{
