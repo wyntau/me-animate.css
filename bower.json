@@ -1,0 +1,27 @@
+{
+  "name": "me-animate.css",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jeremial/me-animate.css",
+  "authors": [
+    "Treri <treri.liu@gmail.com>"
+  ],
+  "description": "http://avati-img.qiniudn.com/m_374f8180-3895-11e4-90fb-0800274302bb.png",
+  "main": "animate.css",
+  "keywords": [
+    "animate.css",
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-animate": "~1.2.20",
+    "animate.css": "~3.2.0",
+    "angular": "~1.2.20"
+  }
+}

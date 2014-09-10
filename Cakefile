@@ -2,11 +2,11 @@
 
 fs = require 'fs'
 CleanCSS = require 'clean-css'
-animationConfig = require './node_modules/animate.css/animate-config.json'
+animationConfig = require './bower_components/animate.css/animate-config.json'
 
 task 'build', 'build demo page css', ->
 
-  animateFile = './node_modules/animate.css/animate.css'
+  animateFile = './bower_components/animate.css/animate.css'
 
   inRegex = /^.*In.*$/
   outRegex = /^.*Out.*$/
