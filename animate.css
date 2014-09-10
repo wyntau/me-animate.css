@@ -3122,13 +3122,14 @@ Copyright (c) 2013 Daniel Eden
 .zoomOutUp.ng-leave {
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp;
-}.ui-view-container{
-    position:relative;
+}
+.ui-view-container{
+  position:relative;
 }
 .animated.ng-enter,.animated.ng-leave{
-    position: absolute;
-    top: 0;
-    left:15px;
-    right:15px;
-    z-index:10;
+  position: absolute;
+  top: 0;
+  left:15px;
+  right:15px;
+  z-index:10;
 }
