@@ -1,6 +1,6 @@
 {
   "name": "me-animate.css",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "animate.css for angular",
   "main": "animate.css",
   "scripts": {
@@ -10,18 +10,18 @@
     "animate.css",
     "angular"
   ],
-  "author": "Jeremial",
+  "author": "Treri",
   "license": "MIT",
   "devDependencies": {
-    "clean-css": "^2.2.15",
+    "clean-css": "^2.2.16",
     "coffee-script": "^1.8.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jeremial/me-animate.css.git"
+    "url": "https://github.com/Treri/me-animate.css.git"
   },
   "bugs": {
-    "url": "https://github.com/jeremial/me-animate.css/issues"
+    "url": "https://github.com/Treri/me-animate.css/issues"
   },
-  "homepage": "https://github.com/jeremial/me-animate.css"
+  "homepage": "https://github.com/Treri/me-animate.css"
 }
