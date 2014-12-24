@@ -1,6 +1,6 @@
 {
   "name": "me-animate.css",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "animate.css for angular",
   "main": "animate.css",
   "scripts": {
@@ -13,7 +13,7 @@
   "author": "Treri",
   "license": "MIT",
   "devDependencies": {
-    "clean-css": "^2.2.16",
+    "clean-css": "^3.0.1",
     "coffee-script": "^1.8.0"
   },
   "repository": {

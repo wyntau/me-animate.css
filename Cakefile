@@ -33,9 +33,9 @@ task 'build', 'build demo page css', ->
 
   for type, dict of ret
     if type == 'inAnimations'
-      animationTypeName = '.ng-enter'
+      animationTypeName = '.ng-enter-active'
     else if type == 'outAnimations'
-      animationTypeName = '.ng-leave'
+      animationTypeName = '.ng-leave-active'
     else
       animationTypeName = ''
 
