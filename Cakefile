@@ -41,9 +41,7 @@ task 'build', 'build demo page css', ->
 
     for animationName in dict
       oldClassName = new RegExp("\n\\.#{animationName}\\s*{", 'g')
-      console.log(oldClassName)
       newClassName = "\n.#{animationName}#{animationTypeName} {"
-      console.log(newClassName)
       content = content.replace oldClassName, newClassName
 
   content += '''
@@ -60,7 +58,7 @@ task 'build', 'build demo page css', ->
   }
   '''
 
-  minContent = (new CleanCSS).minify content
+  minContent = (new CleanCSS).minify(content).styles
 
   fs.writeFileSync outputFile, content, {encoding: 'utf8'}
   fs.writeFileSync minOutputFile, minContent, {encoding: 'utf8'}
