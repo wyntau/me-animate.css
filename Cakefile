@@ -40,8 +40,10 @@ task 'build', 'build demo page css', ->
       animationTypeName = ''
 
     for animationName in dict
-      oldClassName = ".#{animationName}"
-      newClassName = ".#{animationName}#{animationTypeName}"
+      oldClassName = new RegExp("\n\\.#{animationName}\\s*{", 'g')
+      console.log(oldClassName)
+      newClassName = "\n.#{animationName}#{animationTypeName} {"
+      console.log(newClassName)
       content = content.replace oldClassName, newClassName
 
   content += '''
